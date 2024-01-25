@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "UniJobs1.0",
+    "slug": "UniJobs1.0",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "UniJobs1.0"
+}
