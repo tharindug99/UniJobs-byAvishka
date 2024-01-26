@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "483753893460",
+    "project_id": "unijobs-a4511",
+    "storage_bucket": "unijobs-a4511.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483753893460:android:d3cd3de29c6019cf0ad7c1",
+        "android_client_info": {
+          "package_name": "com.unijobs10"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE2SLSlFafiMSPQCS6N5dxDr0wi_3to-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
