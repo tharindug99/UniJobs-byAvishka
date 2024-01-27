@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import auth from '@react-native-firebase/auth';
+import { StackScreenProps } from "@react-navigation/stack";
 
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('')
@@ -12,6 +14,21 @@ export default function LoginScreen({navigation}) {
     }
 
     const onLoginPress = () => {
+
+        if (!email || !password) {
+            Alert.alert('Error', 'Email and password cannot be empty.');
+            return;
+          }
+      
+          auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              Alert.alert('Login Successful', `Welcome back, ${user.email}`);
+            })
+            .catch((error) => {
+              Alert.alert('Error', error.message);
+            });
     }
 
     return (
