@@ -1,21 +1,49 @@
 import React, { useState } from 'react'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TextInput, TouchableOpacity, View,Alert } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import auth from '@react-native-firebase/auth'
+import { StackScreenProps } from "@react-navigation/stack";
+
 
 export default function RegistrationScreen({navigation}) {
+    
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    
+
+   
 
     const onFooterLinkPress = () => {
         navigation.navigate('Login')
     }
 
     const onRegisterPress = () => {
-    }
+        
+        if (!fullName || !email || !password || !confirmPassword ) {
+            Alert.alert('Please fill in all fields.');
+            return;
+        }
 
+        
+        if (password !== confirmPassword) {
+            Alert.alert('Passwords do not match.');
+            return;
+        }
+
+        auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                // Additional logic to save username in your database if needed
+                // For now, just alerting the user that the account is created
+                Alert.alert('User Created', `E-mail: ${email}\nPassword: ${password}\nUsername: ${fullName}`);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView
