@@ -27,7 +27,7 @@ export default function LoginScreen({navigation}) {
             .then((userCredential) => {
               const user = userCredential.user;
               Alert.alert('Login Successful', `Welcome back, ${user.email}`);
-              navigation.navigate('Home')
+              navigation.navigate('OptionsSelection')
             })
             
 
