@@ -39,7 +39,7 @@ export default function RegistrationScreen({navigation}) {
             .then(() => {
                 
                 Alert.alert('User Created', `E-mail: ${email}\nPassword: ${password}\nUsername: ${fullName}`);
-                navigation.navigate('Home')
+                navigation.navigate('OptionsSelection')
             })
            
             .catch(err => {
