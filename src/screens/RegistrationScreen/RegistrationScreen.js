@@ -6,6 +6,7 @@ import auth from '@react-native-firebase/auth'
 import { StackScreenProps } from "@react-navigation/stack";
 
 
+
 export default function RegistrationScreen({navigation}) {
     
     const [fullName, setFullName] = useState('')
@@ -36,12 +37,14 @@ export default function RegistrationScreen({navigation}) {
         auth()
             .createUserWithEmailAndPassword(email, password)
             .then(() => {
-                // Additional logic to save username in your database if needed
-                // For now, just alerting the user that the account is created
+                
                 Alert.alert('User Created', `E-mail: ${email}\nPassword: ${password}\nUsername: ${fullName}`);
+                navigation.navigate('Home')
             })
+           
             .catch(err => {
                 console.log(err);
+                Alert.alert('Registration failed. Please try again.');
             });
     };
     return (

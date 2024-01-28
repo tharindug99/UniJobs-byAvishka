@@ -4,6 +4,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import styles from './styles';
 import auth from '@react-native-firebase/auth';
 import { StackScreenProps } from "@react-navigation/stack";
+import HomeScreen from '../HomeScreen/HomeScreen';
+
 
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('')
@@ -25,9 +27,13 @@ export default function LoginScreen({navigation}) {
             .then((userCredential) => {
               const user = userCredential.user;
               Alert.alert('Login Successful', `Welcome back, ${user.email}`);
+              navigation.navigate('Home')
             })
+            
+
             .catch((error) => {
               Alert.alert('Error', error.message);
+              Alert.alert('Loging failed. Please try again.');
             });
     }
 
