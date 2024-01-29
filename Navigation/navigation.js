@@ -8,14 +8,10 @@ import { decode, encode } from 'base-64';
 import LoginScreen from './../src/screens/LoginScreen/LoginScreen.js';
 import RegistrationScreen from './../src/screens/RegistrationScreen/RegistrationScreen.js';
 import HomeScreen from './../src/screens/HomeScreen/HomeScreen.js';
+import OptionsSelection from '../src/screens/OptionsSelection/OptionSelection.js';
 
 
-if (!global.btoa) {
-  global.btoa = encode;
-}
-if (!global.atob) {
-  global.atob = decode;
-}
+
 
 const styles = StyleSheet.create({
   container: {
@@ -39,6 +35,8 @@ export default function navigation() {
           <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Registration" component={RegistrationScreen} />
+            <Stack.Screen name="OptionsSelection" component={OptionsSelection} />
+
           </>
         
       </Stack.Navigator>
